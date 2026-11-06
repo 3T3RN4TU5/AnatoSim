@@ -1,0 +1,464 @@
+{
+  "restingHeartRateAdult": {
+    "id": "restingHeartRateAdult",
+    "label": "Resting Heart Rate (Adult)",
+    "value": 70,
+    "unit": "bpm",
+    "range": [60, 100],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §19.4 Cardiac Physiology",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology"
+    },
+    "confidence": "high"
+  },
+  "restingHeartRateInfant": {
+    "id": "restingHeartRateInfant",
+    "label": "Resting Heart Rate (Infant)",
+    "value": 130,
+    "unit": "bpm",
+    "range": [100, 160],
+    "ageGroup": "infant",
+    "sex": "all",
+    "source": {
+      "title": "NIH MedlinePlus — Pulse & Pediatric Vital Signs Reference",
+      "url": "https://medlineplus.gov/ency/article/003399.htm"
+    },
+    "confidence": "high"
+  },
+  "restingHeartRateChild": {
+    "id": "restingHeartRateChild",
+    "label": "Resting Heart Rate (Child 1–10 yr)",
+    "value": 90,
+    "unit": "bpm",
+    "range": [70, 120],
+    "ageGroup": "child",
+    "sex": "all",
+    "source": {
+      "title": "NIH MedlinePlus — Pulse & Pediatric Vital Signs Reference",
+      "url": "https://medlineplus.gov/ency/article/003399.htm"
+    },
+    "confidence": "high"
+  },
+  "restingHeartRateAdolescent": {
+    "id": "restingHeartRateAdolescent",
+    "label": "Resting Heart Rate (Adolescent)",
+    "value": 75,
+    "unit": "bpm",
+    "range": [60, 100],
+    "ageGroup": "adolescent",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §19.4 Cardiac Physiology",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology"
+    },
+    "confidence": "high"
+  },
+  "restingHeartRateOlderAdult": {
+    "id": "restingHeartRateOlderAdult",
+    "label": "Resting Heart Rate (Older Adult 65+ yr)",
+    "value": 68,
+    "unit": "bpm",
+    "range": [60, 95],
+    "ageGroup": "older_adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §19.4 Cardiac Physiology",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology"
+    },
+    "confidence": "high"
+  },
+  "strokeVolumeAdult": {
+    "id": "strokeVolumeAdult",
+    "label": "Resting Stroke Volume",
+    "value": 70,
+    "unit": "mL/beat",
+    "range": [55, 100],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §19.4 Cardiac Physiology",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology"
+    },
+    "confidence": "high"
+  },
+  "cardiacOutputAdult": {
+    "id": "cardiacOutputAdult",
+    "label": "Resting Cardiac Output",
+    "value": 4.9,
+    "unit": "L/min",
+    "range": [4.0, 8.0],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §19.4 Cardiac Physiology",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology"
+    },
+    "confidence": "high"
+  },
+  "systolicBloodPressure": {
+    "id": "systolicBloodPressure",
+    "label": "Normal Systolic Blood Pressure",
+    "value": 115,
+    "unit": "mmHg",
+    "range": [90, 120],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "CDC — High Blood Pressure Facts & Clinical Guidelines",
+      "url": "https://www.cdc.gov/high-blood-pressure/about/index.html"
+    },
+    "confidence": "high"
+  },
+  "diastolicBloodPressure": {
+    "id": "diastolicBloodPressure",
+    "label": "Normal Diastolic Blood Pressure",
+    "value": 75,
+    "unit": "mmHg",
+    "range": [60, 80],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "CDC — High Blood Pressure Facts & Clinical Guidelines",
+      "url": "https://www.cdc.gov/high-blood-pressure/about/index.html"
+    },
+    "confidence": "high"
+  },
+  "bloodVolumeMale": {
+    "id": "bloodVolumeMale",
+    "label": "Total Blood Volume (Adult Male)",
+    "value": 5.5,
+    "unit": "L",
+    "range": [5.0, 6.0],
+    "ageGroup": "adult",
+    "sex": "male",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §18.1 An Overview of Blood",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/18-1-an-overview-of-blood"
+    },
+    "confidence": "high"
+  },
+  "bloodVolumeFemale": {
+    "id": "bloodVolumeFemale",
+    "label": "Total Blood Volume (Adult Female)",
+    "value": 4.5,
+    "unit": "L",
+    "range": [4.0, 5.0],
+    "ageGroup": "adult",
+    "sex": "female",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §18.1 An Overview of Blood",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/18-1-an-overview-of-blood"
+    },
+    "confidence": "high"
+  },
+  "plaqueFlowReductionFactor": {
+    "id": "plaqueFlowReductionFactor",
+    "label": "Poiseuille Narrowed-Vessel Relative Flow Scaling (r⁴ Model)",
+    "value": 0.19,
+    "unit": "relative flow at 35% stenosis",
+    "range": [0.05, 1.0],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §20.2 Blood Flow, Blood Pressure, and Resistance (Poiseuille Equation Simplified)",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/20-2-blood-flow-blood-pressure-and-resistance"
+    },
+    "confidence": "illustrative"
+  },
+  "respiratoryRateAdult": {
+    "id": "respiratoryRateAdult",
+    "label": "Resting Respiratory Rate",
+    "value": 14,
+    "unit": "breaths/min",
+    "range": [12, 18],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §22.3 The Process of Breathing",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-3-the-process-of-breathing"
+    },
+    "confidence": "high"
+  },
+  "tidalVolumeAdult": {
+    "id": "tidalVolumeAdult",
+    "label": "Resting Tidal Volume (TV)",
+    "value": 500,
+    "unit": "mL",
+    "range": [400, 600],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §22.3 The Process of Breathing",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-3-the-process-of-breathing"
+    },
+    "confidence": "high"
+  },
+  "alveoliCountAdult": {
+    "id": "alveoliCountAdult",
+    "label": "Pulmonary Alveoli Count (Both Lungs)",
+    "value": 480000000,
+    "unit": "alveoli",
+    "range": [300000000, 600000000],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "NIH/NLM PubMed — Ochs et al., The Number of Alveoli in the Human Lung (Am J Respir Crit Care Med)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14512270/"
+    },
+    "confidence": "high"
+  },
+  "esophagealTransitTime": {
+    "id": "esophagealTransitTime",
+    "label": "Esophageal Peristalsis Transit Time",
+    "value": 6,
+    "unit": "seconds",
+    "range": [4, 8],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §23.3 The Mouth, Pharynx, and Esophagus",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-3-the-mouth-pharynx-and-esophagus"
+    },
+    "confidence": "high"
+  },
+  "gastricEmptyingTime": {
+    "id": "gastricEmptyingTime",
+    "label": "Gastric Emptying Duration",
+    "value": 3.0,
+    "unit": "hours",
+    "range": [2.0, 4.0],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §23.4 The Stomach",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-4-the-stomach"
+    },
+    "confidence": "high"
+  },
+  "smallIntestineTransitTime": {
+    "id": "smallIntestineTransitTime",
+    "label": "Small Intestine Transit Time",
+    "value": 4.0,
+    "unit": "hours",
+    "range": [3.0, 5.0],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §23.5 The Small and Large Intestines",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-5-the-small-and-large-intestines"
+    },
+    "confidence": "high"
+  },
+  "colonicTransitTime": {
+    "id": "colonicTransitTime",
+    "label": "Large Intestine (Colonic) Transit Time",
+    "value": 30,
+    "unit": "hours",
+    "range": [12, 48],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §23.5 The Small and Large Intestines",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-5-the-small-and-large-intestines"
+    },
+    "confidence": "high"
+  },
+  "gastricAcidPh": {
+    "id": "gastricAcidPh",
+    "label": "Gastric Luminal Acid pH",
+    "value": 2.0,
+    "unit": "pH",
+    "range": [1.5, 3.5],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §23.4 The Stomach",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-4-the-stomach"
+    },
+    "confidence": "high"
+  },
+  "neuronRestingPotential": {
+    "id": "neuronRestingPotential",
+    "label": "Neuron Resting Membrane Potential",
+    "value": -70,
+    "unit": "mV",
+    "range": [-75, -65],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §12.5 Communication Between Neurons",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/12-5-communication-between-neurons"
+    },
+    "confidence": "high"
+  },
+  "neuronThresholdPotential": {
+    "id": "neuronThresholdPotential",
+    "label": "Action Potential Excitation Threshold",
+    "value": -55,
+    "unit": "mV",
+    "range": [-60, -50],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §12.5 Communication Between Neurons",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/12-5-communication-between-neurons"
+    },
+    "confidence": "high"
+  },
+  "neuronPeakDepolarization": {
+    "id": "neuronPeakDepolarization",
+    "label": "Action Potential Peak Depolarization",
+    "value": 30,
+    "unit": "mV",
+    "range": [25, 40],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §12.5 Communication Between Neurons",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/12-5-communication-between-neurons"
+    },
+    "confidence": "high"
+  },
+  "patellarReflexLatency": {
+    "id": "patellarReflexLatency",
+    "label": "Monosynaptic Patellar Reflex Latency",
+    "value": 21,
+    "unit": "ms",
+    "range": [18, 25],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "NIH/NLM StatPearls — Deep Tendon Reflexes",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK531502/"
+    },
+    "confidence": "high"
+  },
+  "adultBoneCount": {
+    "id": "adultBoneCount",
+    "label": "Total Bones in Adult Skeleton",
+    "value": 206,
+    "unit": "bones",
+    "range": [206, 206],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §7.1 Divisions of the Skeletal System",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/7-1-divisions-of-the-skeletal-system"
+    },
+    "confidence": "high"
+  },
+  "infantBoneCount": {
+    "id": "infantBoneCount",
+    "label": "Total Bones & Cartilaginous Elements at Birth",
+    "value": 270,
+    "unit": "elements",
+    "range": [270, 300],
+    "ageGroup": "infant",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §6.4 Bone Formation and Development",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/6-4-bone-formation-and-development"
+    },
+    "confidence": "approximate"
+  },
+  "sarcomereRestingLength": {
+    "id": "sarcomereRestingLength",
+    "label": "Skeletal Muscle Sarcomere Optimal Resting Length",
+    "value": 2.2,
+    "unit": "µm",
+    "range": [2.0, 2.4],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §10.3 Muscle Fiber Contraction and Relaxation",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/10-3-muscle-fiber-contraction-and-relaxation"
+    },
+    "confidence": "high"
+  },
+  "glomerularFiltrationRate": {
+    "id": "glomerularFiltrationRate",
+    "label": "Glomerular Filtration Rate (GFR)",
+    "value": 120,
+    "unit": "mL/min",
+    "range": [90, 125],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "OpenStax Anatomy and Physiology 2e — §25.5 Physiology of Urine Formation",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/25-5-physiology-of-urine-formation"
+    },
+    "confidence": "high"
+  },
+  "dailyUrineOutput": {
+    "id": "dailyUrineOutput",
+    "label": "Normal Daily Urine Output",
+    "value": 1.5,
+    "unit": "L/day",
+    "range": [0.8, 2.0],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "NIH MedlinePlus — Urine 24-Hour Volume Reference",
+      "url": "https://medlineplus.gov/ency/article/003425.htm"
+    },
+    "confidence": "high"
+  },
+  "fastingBloodGlucose": {
+    "id": "fastingBloodGlucose",
+    "label": "Fasting Blood Glucose Concentration",
+    "value": 90,
+    "unit": "mg/dL",
+    "range": [70, 99],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "CDC — Diabetes Testing & Normal Blood Sugar Ranges",
+      "url": "https://www.cdc.gov/diabetes/diabetes-testing/index.html"
+    },
+    "confidence": "high"
+  },
+  "coreBodyTemperature": {
+    "id": "coreBodyTemperature",
+    "label": "Normal Core Body Temperature",
+    "value": 37.0,
+    "unit": "°C",
+    "range": [36.5, 37.5],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "NIH MedlinePlus — Body Temperature Norms",
+      "url": "https://medlineplus.gov/ency/article/001982.htm"
+    },
+    "confidence": "high"
+  },
+  "handwashingDurationCDC": {
+    "id": "handwashingDurationCDC",
+    "label": "Recommended Soap Scrubbing Duration",
+    "value": 20,
+    "unit": "seconds",
+    "range": [20, 30],
+    "ageGroup": "all",
+    "sex": "all",
+    "source": {
+      "title": "CDC — About Handwashing & Hygiene Guidance",
+      "url": "https://www.cdc.gov/clean-hands/about/index.html"
+    },
+    "confidence": "high"
+  },
+  "adultSleepDurationCDC": {
+    "id": "adultSleepDurationCDC",
+    "label": "Recommended Adult Daily Sleep",
+    "value": 8.0,
+    "unit": "hours/day",
+    "range": [7.0, 9.0],
+    "ageGroup": "adult",
+    "sex": "all",
+    "source": {
+      "title": "CDC — About Sleep & Recommended Hours by Age",
+      "url": "https://www.cdc.gov/sleep/about/index.html"
+    },
+    "confidence": "high"
+  }
+}

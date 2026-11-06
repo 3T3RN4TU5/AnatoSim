@@ -1,0 +1,6 @@
+{
+  "name": "SomaLab — Interactive 3D Human Body Simulator",
+  "description": "Clinical-grade educational 3D human anatomy and multi-system physiology simulator with cited reference values, layered dissection, and real-time physiological modeling.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
