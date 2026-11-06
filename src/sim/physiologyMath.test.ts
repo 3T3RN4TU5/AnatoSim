@@ -5,6 +5,7 @@ import {
   computePhysiologyMetrics,
   sampleEcgWaveform,
   sampleActionPotentialMv,
+  buildSimulationDashboardSeries,
   SimulationParameters,
 } from './physiologyMath';
 import { PHYSIOLOGY_DATA } from '../data/anatomyCatalog';
@@ -44,6 +45,7 @@ test('resting vs exercise hemodynamics and respiratory scaling', () => {
   assert.ok(exercise.heartRateBpm > rest.heartRateBpm + 60);
   assert.ok(exercise.cardiacOutputLMin > rest.cardiacOutputLMin * 2);
   assert.ok(exercise.minuteVentilationLMin > rest.minuteVentilationLMin * 3);
+  assert.ok(rest.oxygenSaturationPercent >= 95 && rest.oxygenSaturationPercent <= 100);
 });
 
 test('Poiseuille plaque narrowing reduces relative vessel flow and marks illustrative', () => {
@@ -54,6 +56,7 @@ test('Poiseuille plaque narrowing reduces relative vessel flow and marks illustr
   assert.equal(normal.isStenosisIllustrative, false);
   assert.ok(narrowed.relativeVesselFlow < 0.25);
   assert.equal(narrowed.isStenosisIllustrative, true);
+  assert.ok(narrowed.oxygenSaturationPercent < normal.oxygenSaturationPercent);
 });
 
 test('digestive timeline advances through stages from mouth to colon', () => {
@@ -90,4 +93,16 @@ test('ECG and Action Potential waveform samplers return bounded physiological vo
   const peakMv = sampleActionPotentialMv(0.38);
   assert.equal(restingMv, -70);
   assert.ok(peakMv >= 28 && peakMv <= 31);
+});
+
+test('buildSimulationDashboardSeries returns bounded Recharts telemetry points for heartbeat, respiration, and SpO2', () => {
+  const metrics = computePhysiologyMetrics(defaultParams);
+  const series = buildSimulationDashboardSeries(metrics, 12.0, 24);
+  assert.equal(series.length, 24);
+  for (const pt of series) {
+    assert.ok(pt.heartRateBpm >= 50 && pt.heartRateBpm <= 210);
+    assert.ok(pt.respiratoryRateBpm >= 8 && pt.respiratoryRateBpm <= 60);
+    assert.ok(pt.spo2Percent >= 75 && pt.spo2Percent <= 100);
+    assert.ok(pt.tidalVolumeWaveMl >= 0 && pt.tidalVolumeWaveMl <= metrics.tidalVolumeMl);
+  }
 });

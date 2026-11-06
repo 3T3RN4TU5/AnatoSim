@@ -26,6 +26,7 @@ import {
 } from '../sim/omniSomaOrchestrator';
 import { ConfidenceBadge } from './ConfidenceBadge';
 import { LiveTelemetryAndZoom } from './LiveTelemetryAndZoom';
+import { SimulationDashboard } from './SimulationDashboard';
 
 const SYSTEM_ORDER: SystemId[] = [
   'circulatory',
@@ -241,6 +242,9 @@ export const RightInspectorPanel: React.FC = () => {
             </div>
           </section>
         )}
+
+        {/* Real-Time Recharts Simulation Dashboard (Heartbeat, Respiration & SpO2) */}
+        <SimulationDashboard />
 
         {/* Live System Simulation & Micro-Zoom First Above the Fold */}
         <section aria-label="Live System Simulation and Telemetry">

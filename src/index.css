@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   :root {
@@ -10,8 +9,8 @@
 
   body {
     font-family: var(--font-sans);
-    background-color: #0b1120;
-    color: #f1f5f9;
+    background-color: #f8fafc;
+    color: #0f172a;
     overflow: hidden;
     user-select: none;
     -webkit-font-smoothing: antialiased;
@@ -27,18 +26,108 @@
   }
 }
 
+/* Bright Clinical Daylight Theme overrides for legacy dark utility classes across panels & modals */
+.light-theme {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+.light-theme [class*="bg-slate-950"] {
+  background-color: #ffffff !important;
+}
+
+.light-theme [class*="bg-slate-900"] {
+  background-color: #f8fafc !important;
+}
+
+.light-theme [class*="bg-slate-800"] {
+  background-color: #e2e8f0 !important;
+}
+
+.light-theme [class*="bg-rose-950"] {
+  background-color: #ffe4e6 !important;
+}
+
+.light-theme [class*="bg-sky-950"] {
+  background-color: #e0f2fe !important;
+}
+
+.light-theme [class*="bg-amber-950"] {
+  background-color: #fef3c7 !important;
+}
+
+.light-theme [class*="border-slate-800"],
+.light-theme [class*="border-slate-900"],
+.light-theme [class*="border-slate-700"] {
+  border-color: #cbd5e1 !important;
+}
+
+.light-theme [class*="border-rose-800"] {
+  border-color: #fda4af !important;
+}
+
+.light-theme [class*="border-sky-800"] {
+  border-color: #7dd3fc !important;
+}
+
+.light-theme [class*="border-amber-800"] {
+  border-color: #fcd34d !important;
+}
+
+.light-theme [class*="text-slate-100"],
+.light-theme [class*="text-slate-200"],
+.light-theme [class*="text-white"]:not([class*="bg-sky-600"]):not([class*="bg-sky-500"]) {
+  color: #0f172a !important;
+}
+
+.light-theme [class*="text-slate-300"] {
+  color: #334155 !important;
+}
+
+.light-theme [class*="text-slate-400"],
+.light-theme [class*="text-slate-500"] {
+  color: #475569 !important;
+}
+
+.light-theme [class*="text-sky-300"],
+.light-theme [class*="text-sky-400"],
+.light-theme [class*="text-sky-200"] {
+  color: #0369a1 !important;
+}
+
+.light-theme [class*="text-emerald-300"],
+.light-theme [class*="text-emerald-400"] {
+  color: #047857 !important;
+}
+
+.light-theme [class*="text-amber-200"],
+.light-theme [class*="text-amber-300"],
+.light-theme [class*="text-amber-400"] {
+  color: #b45309 !important;
+}
+
+.light-theme [class*="text-rose-200"],
+.light-theme [class*="text-rose-300"],
+.light-theme [class*="text-rose-400"] {
+  color: #be123c !important;
+}
+
+.light-theme [class*="text-teal-300"] {
+  color: #0f766e !important;
+}
+
 /* Custom subtle scrollbars for anatomical inspector & sources drawer */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.6);
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(100, 116, 139, 0.45);
+  background: #cbd5e1;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(148, 163, 184, 0.7);
+  background: #94a3b8;
 }

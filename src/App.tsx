@@ -33,9 +33,9 @@ export default function App() {
   }, []);
 
   return (
-    <div className="dark w-screen h-screen bg-[#0b1120] text-slate-100 flex flex-col overflow-hidden select-none">
-      {/* Strict 3-Zone Top Bar Contract */}
-      <header className="flex items-center justify-between gap-8 px-6 py-3 bg-slate-950 border-b border-slate-800/90 shrink-0 z-30">
+    <div className="light-theme w-screen h-screen bg-slate-50 text-slate-900 flex flex-col overflow-hidden select-none">
+      {/* Strict 3-Zone Top Bar Contract (Bright Clinical Daylight Theme) */}
+      <header className="flex items-center justify-between gap-8 px-6 py-3 bg-white border-b border-slate-200 shrink-0 z-30 shadow-2xs">
         {/* Zone 1: Single text element wordmark */}
         <a
           href="#top"
@@ -43,7 +43,7 @@ export default function App() {
             e.preventDefault();
             setActiveModal('none');
           }}
-          className="text-lg font-bold tracking-tight text-slate-100 whitespace-nowrap shrink-0 font-display"
+          className="text-lg font-bold tracking-tight text-slate-900 whitespace-nowrap shrink-0 font-display"
         >
           SomaLab
         </a>
@@ -51,40 +51,40 @@ export default function App() {
         {/* Zone 2: 5 concise single-line text navigation links */}
         <nav
           aria-label="Primary Simulation Views"
-          className="hidden md:flex items-center gap-6 text-xs font-medium text-slate-300"
+          className="hidden md:flex items-center gap-6 text-xs font-medium text-slate-600"
         >
           <button
             type="button"
             onClick={() => setActiveModal('omnisoma')}
-            className="text-sky-300 hover:text-white hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            className="text-sky-700 font-semibold hover:text-sky-900 hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             OmniSoma Agents
           </button>
           <button
             type="button"
             onClick={() => setActiveModal('day_timeline')}
-            className="hover:text-white hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            className="hover:text-slate-900 hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             Day Timeline
           </button>
           <button
             type="button"
             onClick={() => setActiveModal('compare')}
-            className="hover:text-white hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            className="hover:text-slate-900 hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             Compare Mode
           </button>
           <button
             type="button"
             onClick={() => setActiveModal('lessons')}
-            className="hover:text-white hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            className="hover:text-slate-900 hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             Guided Quizzes
           </button>
           <button
             type="button"
             onClick={() => setActiveModal('sources')}
-            className="hover:text-white hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            className="hover:text-slate-900 hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             Sources & Citations
           </button>
@@ -95,7 +95,7 @@ export default function App() {
           <button
             type="button"
             onClick={handleExportSnapshot}
-            className="px-3.5 py-1.5 text-xs font-semibold text-slate-950 bg-sky-400 hover:bg-sky-300 rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            className="px-3.5 py-1.5 text-xs font-semibold text-white bg-sky-600 hover:bg-sky-700 rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer shadow-2xs"
           >
             Export Snapshot
           </button>
@@ -110,23 +110,23 @@ export default function App() {
           <div className="absolute top-3 left-3 right-3 z-20 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
             <div
               data-testid="medical-disclaimer-banner"
-              className="pointer-events-auto bg-slate-950/90 border border-amber-500/40 rounded-lg px-3 py-1.5 flex items-center gap-2 text-xs text-amber-200 shadow-lg"
+              className="pointer-events-auto bg-amber-50/95 border border-amber-300 rounded-lg px-3 py-1.5 flex items-center gap-2 text-xs text-amber-900 shadow-sm"
             >
-              <ShieldAlert className="w-4 h-4 text-amber-400 shrink-0" aria-hidden="true" />
+              <ShieldAlert className="w-4 h-4 text-amber-600 shrink-0" aria-hidden="true" />
               <span className="font-medium">
                 Educational simplification. Not for diagnosis or medical decisions.
               </span>
             </div>
 
-            <div className="pointer-events-auto flex items-center gap-1.5 bg-slate-950/90 border border-slate-800 rounded-lg p-1 text-xs">
+            <div className="pointer-events-auto flex items-center gap-1.5 bg-white/95 border border-slate-200 rounded-lg p-1 text-xs shadow-sm">
               <button
                 type="button"
                 onClick={() => setColorBlindSafe(!colorBlindSafe)}
                 aria-pressed={colorBlindSafe}
                 className={`px-2.5 py-1 rounded font-medium flex items-center gap-1 cursor-pointer whitespace-nowrap ${
                   colorBlindSafe
-                    ? 'bg-sky-500/20 text-sky-300 border border-sky-500/40'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-sky-100 text-sky-800 border border-sky-300'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 <Eye className="w-3.5 h-3.5" />
@@ -138,8 +138,8 @@ export default function App() {
                 aria-pressed={reducedMotion}
                 className={`px-2.5 py-1 rounded font-medium cursor-pointer whitespace-nowrap ${
                   reducedMotion
-                    ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-amber-100 text-amber-900 border border-amber-300'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 Reduced Motion

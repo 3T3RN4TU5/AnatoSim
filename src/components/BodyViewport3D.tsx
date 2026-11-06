@@ -57,8 +57,8 @@ export const BodyViewport3D: React.FC = () => {
     const height = Math.max(320, container.clientHeight || Math.floor(window.innerHeight * 0.85));
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0b1120);
-    scene.fog = new THREE.FogExp2(0x0b1120, 0.08);
+    scene.background = new THREE.Color(0xf1f5f9);
+    scene.fog = new THREE.FogExp2(0xf1f5f9, 0.045);
 
     const camera = new THREE.PerspectiveCamera(40, width / height, 0.05, 30);
     camera.position.set(0.0, 0.08, 2.38);
@@ -70,7 +70,7 @@ export const BodyViewport3D: React.FC = () => {
     });
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.25;
+    renderer.toneMappingExposure = 1.15;
     renderer.setPixelRatio(isSoftwareGl ? 1 : Math.min(window.devicePixelRatio, 2));
     renderer.setSize(width, height);
     renderer.shadowMap.enabled = !isSoftwareGl;
@@ -88,11 +88,11 @@ export const BodyViewport3D: React.FC = () => {
     scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
     pmremGenerator.dispose();
 
-    // 3. Balanced 3-Point Warm/Cool Studio Lighting Rig
-    const hemiLight = new THREE.HemisphereLight(0xbae6fd, 0x1e293b, 1.15);
+    // 3. Balanced 3-Point Warm/Cool Studio Lighting Rig (Bright Clinical Daylight)
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0xe2e8f0, 1.25);
     scene.add(hemiLight);
 
-    const keyLight = new THREE.DirectionalLight(0xfff7ed, 1.9);
+    const keyLight = new THREE.DirectionalLight(0xfffaf0, 1.85);
     keyLight.position.set(1.8, 2.4, 2.4);
     if (!isSoftwareGl) {
       keyLight.castShadow = true;
@@ -101,11 +101,11 @@ export const BodyViewport3D: React.FC = () => {
     }
     scene.add(keyLight);
 
-    const fillLight = new THREE.DirectionalLight(0x7dd3fc, 0.85);
+    const fillLight = new THREE.DirectionalLight(0xe0f2fe, 0.95);
     fillLight.position.set(-2.0, 0.8, 1.5);
     scene.add(fillLight);
 
-    const rimLight = new THREE.DirectionalLight(0x38bdf8, 1.1);
+    const rimLight = new THREE.DirectionalLight(0xbae6fd, 0.9);
     rimLight.position.set(0.0, 1.8, -2.0);
     scene.add(rimLight);
 
@@ -114,11 +114,11 @@ export const BodyViewport3D: React.FC = () => {
     pedestalGroup.position.set(0, -0.84, 0);
     const pedestalBase = new THREE.Mesh(
       new THREE.CylinderGeometry(0.46, 0.52, 0.04, 36),
-      new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.35, metalness: 0.5 }),
+      new THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.3, metalness: 0.15 }),
     );
     const pedestalRing = new THREE.Mesh(
       new THREE.RingGeometry(0.42, 0.445, 48),
-      new THREE.MeshBasicMaterial({ color: 0x38bdf8, side: THREE.DoubleSide }),
+      new THREE.MeshBasicMaterial({ color: 0x0284c7, side: THREE.DoubleSide }),
     );
     pedestalRing.rotation.x = -Math.PI / 2;
     pedestalRing.position.y = 0.022;
@@ -126,9 +126,9 @@ export const BodyViewport3D: React.FC = () => {
     const shadowDisc = new THREE.Mesh(
       new THREE.CircleGeometry(0.36, 32),
       new THREE.MeshBasicMaterial({
-        color: 0x020617,
+        color: 0x64748b,
         transparent: true,
-        opacity: 0.55,
+        opacity: 0.22,
         depthWrite: false,
       }),
     );
@@ -578,7 +578,7 @@ export const BodyViewport3D: React.FC = () => {
       ref={canvasMountRef}
       data-testid="anatomy-3d-viewport"
       aria-label="Interactive 3D Human Body Anatomical Viewport"
-      className="w-full h-full relative overflow-hidden bg-[#0b1120]"
+      className="w-full h-full relative overflow-hidden bg-[#f1f5f9]"
     />
   );
 };

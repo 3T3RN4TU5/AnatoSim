@@ -95,9 +95,9 @@ export const BottomControlDock: React.FC = () => {
                       className="flex items-center gap-1 text-[11px] font-medium whitespace-nowrap cursor-pointer"
                     >
                       <span
-                        className="w-2 h-2 rounded-sm shrink-0"
+                        className="w-2.5 h-2.5 rounded-sm shrink-0 border border-slate-400/80"
                         style={{
-                          backgroundColor: st.visible ? layer.colorSwatch : '#334155',
+                          backgroundColor: st.visible ? layer.colorSwatch : '#cbd5e1',
                         }}
                       />
                       <span>{layer.shortLabel}</span>

@@ -42,6 +42,7 @@ export interface ComputedPhysiologyMetrics {
   minuteVentilationLMin: number;
   alveolarPo2MmHg: number;
   alveolarPco2MmHg: number;
+  oxygenSaturationPercent: number;
 
   // Digestive
   currentDigestiveStage: 'mouth_esophagus' | 'stomach' | 'small_intestine' | 'large_intestine' | 'complete';
@@ -202,6 +203,19 @@ export function computePhysiologyMetrics(params: SimulationParameters): Computed
   const minuteVentilationLMin = Number(((respiratoryRateBpm * tidalVolumeMl) / 1000).toFixed(1));
   const alveolarPo2MmHg = Math.round(104 - activityRatio * 6);
   const alveolarPco2MmHg = Math.round(40 + activityRatio * 3);
+
+  // Hill Hemoglobin-Oxygen Dissociation Model (anchored to PHYSIOLOGY_DATA.arterialOxygenSaturation)
+  const baseSpo2 = PHYSIOLOGY_DATA.arterialOxygenSaturation?.value ?? 98.0;
+  const effectivePo2 = Math.max(
+    48,
+    alveolarPo2MmHg - (1 - relativeVesselFlow) * 32 - activityRatio * 5 - (1 - hydrationRatio) * 3,
+  );
+  const p50 = 26.6 + activityRatio * 2.4; // Rightward Bohr shift with exercise acidosis/temp
+  const hillRatio = Math.pow(effectivePo2, 2.7) / (Math.pow(effectivePo2, 2.7) + Math.pow(p50, 2.7));
+  const refHillRatio = Math.pow(104, 2.7) / (Math.pow(104, 2.7) + Math.pow(26.6, 2.7));
+  const oxygenSaturationPercent = Number(
+    Math.min(100, Math.max(78, baseSpo2 * (hillRatio / refHillRatio))).toFixed(1),
+  );
 
   // Digestive transit times (from physiology.json ranges)
   const mealMultipliers: Record<MealType, { gastric: number; si: number; carbs: number; protein: number; fat: number; enzymes: string[] }> = {
@@ -397,6 +411,7 @@ export function computePhysiologyMetrics(params: SimulationParameters): Computed
     minuteVentilationLMin,
     alveolarPo2MmHg,
     alveolarPco2MmHg,
+    oxygenSaturationPercent,
     currentDigestiveStage,
     digestiveStageLabel,
     bolusProgress01: Number(Math.max(0, Math.min(1, bolusProgress01)).toFixed(3)),
@@ -454,6 +469,75 @@ export function sampleEcgWaveform(phase01: number): number {
   const tWave = 0.32 * Math.exp(-Math.pow((p - 0.54) / 0.048, 2));
 
   return Number((pWave + qWave + rWave + sWave + tWave).toFixed(4));
+}
+
+/**
+ * Samples arterial pulse oximetry plethysmograph wave [0, 100] with systolic peak and dicrotic notch.
+ */
+export function samplePlethWaveform(phase01: number, spo2Percent = 98): number {
+  const p = ((phase01 % 1) + 1) % 1;
+  // Systolic upstroke peak around p = 0.42 (delayed after R-wave at 0.30)
+  const systolicPeak = 68 * Math.exp(-Math.pow((p - 0.42) / 0.085, 2));
+  // Dicrotic wave (aortic valve closure rebound) around p = 0.64
+  const dicroticWave = 26 * Math.exp(-Math.pow((p - 0.64) / 0.11, 2));
+  const ampScale = Math.max(0.4, (spo2Percent - 70) / 30);
+  return Number((18 + (systolicPeak + dicroticWave) * ampScale).toFixed(1));
+}
+
+export interface DashboardTimePoint {
+  timeLabel: string;
+  elapsedSec: number;
+  ecgMv: number;
+  heartRateBpm: number;
+  tidalVolumeWaveMl: number;
+  respiratoryRateBpm: number;
+  spo2Percent: number;
+  plethIndex: number;
+}
+
+/**
+ * Builds a deterministic rolling 6-second telemetry window for the Recharts Simulation Dashboard.
+ */
+export function buildSimulationDashboardSeries(
+  metrics: ComputedPhysiologyMetrics,
+  simTimeSec: number,
+  sampleCount = 36,
+): DashboardTimePoint[] {
+  const windowSec = 6.0;
+  const startSec = Math.max(0, simTimeSec - windowSec);
+  const points: DashboardTimePoint[] = [];
+  const hrFreqHz = metrics.heartRateBpm / 60;
+  const rrFreqHz = metrics.respiratoryRateBpm / 60;
+
+  for (let i = 0; i < sampleCount; i++) {
+    const t = startSec + (i / (sampleCount - 1)) * windowSec;
+    const cardiacPhase = (t * hrFreqHz) % 1;
+    const respPhase = (t * rrFreqHz) % 1;
+    const breathCycle01 = 0.5 - 0.5 * Math.cos(respPhase * Math.PI * 2);
+
+    // Respiratory sinus arrhythmia: slight physiological HR oscillation with inspiration/expiration
+    const rsaDelta = Math.sin(respPhase * Math.PI * 2) * 2.2;
+    const instHr = Math.round(metrics.heartRateBpm + rsaDelta);
+    const instSpo2 = Number(
+      Math.min(
+        100,
+        Math.max(75, metrics.oxygenSaturationPercent + (breathCycle01 - 0.5) * 0.4),
+      ).toFixed(1),
+    );
+
+    points.push({
+      timeLabel: `${t.toFixed(1)}s`,
+      elapsedSec: Number(t.toFixed(2)),
+      ecgMv: sampleEcgWaveform(cardiacPhase),
+      heartRateBpm: instHr,
+      tidalVolumeWaveMl: Math.round(breathCycle01 * metrics.tidalVolumeMl),
+      respiratoryRateBpm: metrics.respiratoryRateBpm,
+      spo2Percent: instSpo2,
+      plethIndex: samplePlethWaveform(cardiacPhase, instSpo2),
+    });
+  }
+
+  return points;
 }
 
 /**

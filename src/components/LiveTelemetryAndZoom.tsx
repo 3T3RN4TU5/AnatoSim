@@ -91,14 +91,14 @@ export const LiveTelemetryAndZoom: React.FC = () => {
             role="img"
             aria-label={`Live ECG waveform at ${metrics.heartRateBpm} beats per minute`}
           >
-            <line x1="0" y1="52" x2="320" y2="52" stroke="#1e293b" strokeDasharray="3 3" />
+            <line x1="0" y1="52" x2="320" y2="52" stroke="#cbd5e1" strokeDasharray="3 3" />
             <polyline
               fill="none"
-              stroke="#10b981"
+              stroke="#059669"
               strokeWidth="2"
               points={ecgPoints}
             />
-            <text x="8" y="16" fill="#94a3b8" fontSize="9" fontFamily="monospace">
+            <text x="8" y="16" fill="#475569" fontSize="9" fontFamily="monospace">
               P (Atrial Systole) → QRS (Ventricular Systole) → T (Diastole)
             </text>
           </svg>
@@ -208,9 +208,9 @@ export const LiveTelemetryAndZoom: React.FC = () => {
             role="img"
             aria-label="Live respiratory tidal volume spirogram"
           >
-            <line x1="0" y1="44" x2="320" y2="44" stroke="#1e293b" strokeDasharray="3 3" />
-            <polyline fill="none" stroke="#38bdf8" strokeWidth="2" points={respPoints} />
-            <text x="8" y="15" fill="#94a3b8" fontSize="9" fontFamily="monospace">
+            <line x1="0" y1="44" x2="320" y2="44" stroke="#cbd5e1" strokeDasharray="3 3" />
+            <polyline fill="none" stroke="#0284c7" strokeWidth="2" points={respPoints} />
+            <text x="8" y="15" fill="#475569" fontSize="9" fontFamily="monospace">
               Minute Ventilation (VE): {metrics.minuteVentilationLMin} L/min | Alveolar PO₂: {metrics.alveolarPo2MmHg} mmHg
             </text>
           </svg>
@@ -364,9 +364,9 @@ export const LiveTelemetryAndZoom: React.FC = () => {
             role="img"
             aria-label="Neuronal membrane potential waveform from -70 mV resting to +30 mV peak depolarization"
           >
-            <line x1="0" y1="62" x2="320" y2="62" stroke="#334155" strokeDasharray="2 2" />
-            <polyline fill="none" stroke="#f59e0b" strokeWidth="2" points={actionPotentialPoints} />
-            <text x="8" y="14" fill="#fde047" fontSize="9" fontFamily="monospace">
+            <line x1="0" y1="62" x2="320" y2="62" stroke="#cbd5e1" strokeDasharray="2 2" />
+            <polyline fill="none" stroke="#d97706" strokeWidth="2" points={actionPotentialPoints} />
+            <text x="8" y="14" fill="#b45309" fontSize="9" fontFamily="monospace">
               Peak: +30 mV (Na⁺ influx) | Threshold: -55 mV | Resting: -70 mV
             </text>
           </svg>
